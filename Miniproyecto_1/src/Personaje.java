@@ -8,6 +8,7 @@ public abstract class Personaje {
     protected int defensa;
     protected int velocidad;
     protected boolean vivo = true;
+    protected int edad;
 
     public Personaje(string nombre, int hpMax, int mpMax, int ataque, int defensa, int velocidad) {
         this.nombre = nombre;
@@ -16,6 +17,7 @@ public abstract class Personaje {
         this.ataque = ataque;
         this.defensa = defensa;
         this.velocidad = velocidad;
+        this.edad = 0;
     }
 
     public String getNombre() {
@@ -37,6 +39,9 @@ public abstract class Personaje {
 
     public boolean isVivo() {
         return vivo;
+    }
+    public int getEdad() {
+        return edad;
     }
 }
 
