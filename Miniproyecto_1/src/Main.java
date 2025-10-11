@@ -3,22 +3,27 @@
 import Combate.Combate;
 import Personajes.Heroe;
 import Personajes.Enemigo;
-import Personajes.Personaje;
 import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
 
-        Heroe heroe = new Heroe("Héroe", 120, 30, 25, 10, 15);
-        Heroe jessica = new Heroe("Jessica", 100, 50, 18, 8, 20);
+        // --- Héroes del equipo ---
+        Heroe heroe = new Heroe("Héroe", 120, 40, 25, 10, 15);
+        Heroe yangus = new Heroe("Yangus", 150, 20, 35, 15, 10);
+        Heroe jessica = new Heroe("Jessica", 90, 70, 15, 8, 18);
+        Heroe angelo = new Heroe("Angelo", 110, 60, 20, 12, 16);
 
-        Enemigo slime = new Enemigo("Slime", 70, 0, 10, 5, 12);
-        Enemigo dragon = new Enemigo("Dragón", 150, 20, 30, 15, 10);
+        // --- Enemigos ---
+        Enemigo slime = new Enemigo("Slime", 80, 0, 15, 5, 10);
+        Enemigo dragon = new Enemigo("Dragón", 200, 0, 35, 20, 8);
+        Enemigo espectro = new Enemigo("Espectro", 100, 40, 20, 10, 14);
+        Enemigo golem = new Enemigo("Gólem", 180, 0, 40, 25, 9);
 
-        // 👉 Combate recibe listas de tipo List<Personaje>
+        // --- Iniciar combate ---
         Combate combate = new Combate(
-                List.of(heroe, jessica),
-                List.of(slime, dragon)
+                List.of(heroe, yangus, jessica, angelo),
+                List.of(slime, dragon, espectro, golem)
         );
 
         combate.iniciarCombate();

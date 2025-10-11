@@ -5,7 +5,6 @@ import Habilidades.Habilidad;
 import java.util.Random;
 
 public class Enemigo extends Personaje {
-
     public Enemigo(String nombre, int hp, int mp, int ataque, int defensa, int velocidad) {
         super(nombre, hp, mp, ataque, defensa, velocidad);
         habilidades.add(new AtaqueBasico());
@@ -15,7 +14,9 @@ public class Enemigo extends Personaje {
     public void atacar(Personaje objetivo) {
         Random rand = new Random();
         Habilidad habilidad = habilidades.get(rand.nextInt(habilidades.size()));
+        System.out.println("\n🔥 Turno del enemigo " + nombre);
         habilidad.usar(this, objetivo);
     }
 }
+
 

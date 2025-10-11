@@ -34,6 +34,12 @@ public abstract class Personaje {
         }
         System.out.println(nombre + " recibe " + dañoFinal + " de daño. (HP: " + hp + ")");
     }
+    public void curar(int cantidad) {
+        hp += cantidad;
+        if (hp > 999) hp = 999; // límite por estética
+        System.out.println(nombre + " ahora tiene " + hp + " HP");
+    }
+
 
     public abstract void atacar(Personaje objetivo);
 }
