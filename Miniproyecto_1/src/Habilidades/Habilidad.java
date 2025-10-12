@@ -3,7 +3,6 @@ package Habilidades;
 import Personajes.Personaje;
 
 public abstract class Habilidad {
-// Clase base para habilidades
     protected String nombre;
     protected int costoMP;
 

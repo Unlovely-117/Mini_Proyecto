@@ -8,8 +8,6 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
 
-        // Clase principal que inicia el programa
-        // Ejecuta el flujo principal del juego
         // --- Héroes del equipo ---
         Heroe heroe = new Heroe("Héroe", 120, 40, 25, 10, 15);
         Heroe yangus = new Heroe("Yangus", 150, 20, 35, 15, 10);

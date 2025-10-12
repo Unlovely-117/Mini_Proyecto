@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Combate {
-// Clase que gestiona el combate entre personajes
     private List<Personaje> heroes;
     private List<Personaje> enemigos;
     private Scanner scanner = new Scanner(System.in);

@@ -3,7 +3,6 @@ package Habilidades;
 import Personajes.Personaje;
 
 public class Curar extends Habilidad {
-    // Habilidad para curar personajes
     public Curar() {
         super("Curar", 8);
     }

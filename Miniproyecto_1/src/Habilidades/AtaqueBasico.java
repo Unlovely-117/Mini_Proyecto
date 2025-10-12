@@ -2,7 +2,6 @@ package Habilidades;
 
 import Personajes.Personaje;
 
-// Habilidad de ataque básico
 public class AtaqueBasico extends Habilidad {
 
     public AtaqueBasico() {
