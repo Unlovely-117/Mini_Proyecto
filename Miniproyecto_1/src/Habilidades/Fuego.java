@@ -4,6 +4,7 @@ import Personajes.Personaje;
 
 public class Fuego extends Habilidad {
     public Fuego() {
+// Habilidad de ataque de fuego
         super("Fuego", 10);
     }
 
