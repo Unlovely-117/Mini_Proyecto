@@ -1,12 +1,17 @@
-# Dragon Quest VIII - Battle Simulation
+# 🐉 Dragon Quest VIII - Battle Simulation
 
 ## 👥 Integrantes
-- David Lopez Restrepo - 2380304
-- Manuela Guerrero Llanos - 2459660
-- Kevin S. Bermeo Rico - 2477363
+
+* **David Lopez Restrepo** – 2380304
+* **Manuela Guerrero Llanos** – 2459660
+* **Kevin S. Bermeo Rico** – 2477363
+
+---
 
 ## 🚀 Ejecución
-Compilar y ejecutar con:
+
+Compilar y ejecutar desde la raíz del proyecto:
+
 ```bash
 javac src/**/*.java
 java src/Main
@@ -19,140 +24,161 @@ java src/Main
 ```
 Mini_Proyecto/
 ├── README.md
-├── src/
-│   ├── Main.java
-│   ├── [Otras clases y paquetes...]
+└── src/
+    ├── Main.java
+    ├── Combate/
+    │   └── Combate.java
+    ├── Habilidades/
+    │   ├── AtaqueBasico.java
+    │   ├── Curar.java
+    │   ├── Fuego.java
+    │   └── Habilidad.java
+    └── Personajes/
+        ├── Enemigo.java
+        ├── Heroe.java
+        └── Personaje.java
 ```
-
-### Descripción General
-
-Este proyecto simula batallas en el universo de Dragon Quest VIII. Implementa un sistema de combate por turnos entre personajes, enemigos y habilidades, siguiendo la lógica de los RPG clásicos.
-
-### Componentes Principales
-
-#### Main.java
-
-Punto de entrada de la aplicación. Aquí se inicializa la simulación, se crean los personajes, enemigos y se gestiona el flujo principal de la batalla.
-
-#### [Clase Personaje.java]
-
-Define los atributos y métodos de los personajes jugables. Incluye estadísticas como vida, ataque, defensa, habilidades y lógica para realizar acciones en combate.
-
-#### [Clase Enemigo.java]
-
-Representa a los enemigos enfrentados por los personajes. Maneja sus propias estadísticas y acciones.
-
-#### [Clase Habilidad.java]
-
-Modela las distintas habilidades que pueden usar los personajes y enemigos. Permite aplicar efectos como daño, curación, estados alterados, etc.
-
-#### [Clase Batalla.java]
-
-Gestiona el desarrollo de la batalla, turnos, orden de acciones, aplicación de efectos y determina el resultado (victoria/derrota).
 
 ---
 
-## 🔍 Detalle de Clases y Métodos
+## 🧩 Descripción General
 
-A continuación se detalla el funcionamiento de cada clase y sus métodos más relevantes:
+Este proyecto es una **simulación de combate por turnos** inspirada en *Dragon Quest VIII*, desarrollada completamente en **Java** aplicando los principios de la **Programación Orientada a Objetos (POO)**.
 
-### Main.java
+El sistema permite crear **héroes** y **enemigos** con atributos y habilidades únicas, enfrentándolos en batallas dinámicas donde:
 
-```java
-public class Main {
-    public static void main(String[] args) {
-        // Inicialización de personajes y enemigos
-        // Configuración de la batalla
-        // Ciclo principal del combate
-    }
-}
-```
-- **main:** Método principal; orquesta toda la simulación.
-
-### Personaje.java
-
-```java
-public class Personaje {
-    private String nombre;
-    private int vida;
-    private int ataque;
-    private int defensa;
-    // ...
-
-    public void atacar(Enemigo enemigo) { ... }
-    public void usarHabilidad(Habilidad habilidad, Enemigo enemigo) { ... }
-    // ...
-}
-```
-- **atacar:** Realiza un ataque estándar al enemigo.
-- **usarHabilidad:** Ejecuta una habilidad sobre un objetivo.
-
-### Enemigo.java
-
-```java
-public class Enemigo {
-    private String nombre;
-    private int vida;
-    // ...
-
-    public void atacar(Personaje personaje) { ... }
-    // ...
-}
-```
-- **atacar:** El enemigo realiza su acción sobre el jugador.
-
-### Habilidad.java
-
-```java
-public class Habilidad {
-    private String nombre;
-    private int poder;
-    // ...
-
-    public void aplicar(Personaje objetivo) { ... }
-    // ...
-}
-```
-- **aplicar:** Ejecuta el efecto de la habilidad en el objetivo.
-
-### Batalla.java
-
-```java
-public class Batalla {
-    private List<Personaje> personajes;
-    private List<Enemigo> enemigos;
-    // ...
-
-    public void iniciar() { ... }
-    public void ejecutarTurno() { ... }
-    public boolean batallaTerminada() { ... }
-    // ...
-}
-```
-- **iniciar:** Prepara la batalla.
-- **ejecutarTurno:** Gestiona las acciones de cada participante en cada turno.
-- **batallaTerminada:** Evalúa si la batalla ha finalizado.
+* El jugador elige acciones (ataques físicos, habilidades mágicas, curación o pasar turno).
+* Los enemigos actúan de forma automática.
+* La batalla continúa hasta que todos los héroes o enemigos sean derrotados.
 
 ---
 
-## 📝 Ejemplo de Flujo de Combate
+## ⚙️ Componentes Principales
 
-1. Se inicializan personajes y enemigos.
-2. Se asignan habilidades a cada participante.
-3. Se inicia la batalla.
-4. Cada turno, los personajes y enemigos realizan acciones.
-5. Se aplica el resultado de cada acción (daño, curación, estados).
-6. El ciclo se repite hasta que uno de los bandos queda sin vida.
+### 🧠 Main.java
 
----
+Clase principal del programa.
 
-## 💡 Notas Adicionales
-
-- El proyecto puede expandirse agregando nuevas clases como Inventario, Estado, Items, etc.
-- Se recomienda comentar el código fuente para facilitar futuras modificaciones.
+* Contiene el método `main`, punto de entrada de la aplicación.
+* Crea los personajes (héroes y enemigos).
+* Lanza la simulación de combate mediante la clase `Combate`.
 
 ---
 
-## 📚 Créditos y Licencia
+### ⚔️ Personaje.java
 
-Este proyecto es desarrollado con fines académicos en la Universidad del Valle.
+Clase abstracta que define la estructura básica de cualquier personaje del juego.
+
+**Atributos:**
+
+* `String nombre`
+* `int hp` (vida)
+* `int mp` (magia)
+* `int ataque`
+* `int defensa`
+* `int velocidad`
+* `boolean vivo`
+* `LinkedList<Habilidad> habilidades`
+
+**Métodos principales:**
+
+* `recibirDano(int dano)` → Resta puntos de vida al personaje.
+* `curar(int cantidad)` → Restaura puntos de vida.
+* `estaVivo()` → Retorna si el personaje sigue con vida.
+* `atacar(Personaje objetivo)` → Método abstracto implementado por las subclases.
+
+---
+
+### 🧙‍♂️ Heroe.java
+
+Extiende la clase `Personaje`.
+Representa a los personajes **controlados por el jugador**.
+
+**Características:**
+
+* Presenta un **menú interactivo** para elegir acciones:
+
+  * Ataque físico
+  * Usar habilidad
+  * Pasar turno
+* Consume **MP** al usar habilidades.
+* Permite decisiones estratégicas según la situación del combate.
+
+---
+
+### 👹 Enemigo.java
+
+Extiende la clase `Personaje`.
+Representa a los enemigos **controlados por la CPU**.
+
+**Características:**
+
+* Selecciona automáticamente una habilidad de su lista.
+* Puede ejecutar ataques físicos o mágicos sin intervención del jugador.
+* Sirve como oponente directo del héroe en la batalla.
+
+---
+
+### ✨ Habilidad.java
+
+Clase base para todas las habilidades del juego.
+
+**Atributos:**
+
+* `String nombre`
+* `int poder`
+* `int costoMP`
+
+**Método principal:**
+
+* `usar(Personaje usuario, Personaje objetivo)` → Aplica el efecto de la habilidad (daño, curación o efecto especial).
+
+---
+
+### 💥 Clases Derivadas de Habilidad
+
+* **AtaqueBasico.java** → Realiza un ataque físico estándar.
+* **Fuego.java** → Habilidad mágica ofensiva que causa daño adicional.
+* **Curar.java** → Habilidad de tipo soporte que restaura puntos de vida.
+
+---
+
+### ⚔️ Combate.java
+
+Controla todo el flujo de la batalla.
+
+**Responsabilidades:**
+
+* Iniciar el combate.
+* Determinar el orden de turnos según la velocidad.
+* Ejecutar las acciones seleccionadas por héroes y enemigos.
+* Evaluar si la batalla ha terminado (victoria o derrota).
+* Mostrar mensajes y resultados de cada turno.
+
+---
+
+## 🌀 Flujo de Combate
+
+1. Se crean los héroes y enemigos.
+2. Se asignan las habilidades correspondientes.
+3. Se inicializa la clase `Combate`.
+4. El jugador selecciona acciones en cada turno.
+5. Los enemigos actúan automáticamente.
+6. Se aplican los resultados (daño, curación, estados).
+7. El ciclo se repite hasta que un bando sea derrotado.
+
+---
+
+## 💡 Posibles Extensiones
+
+* Añadir sistema de **niveles y experiencia**.
+* Implementar **inventario** y **objetos consumibles**.
+* Incluir **efectos de estado** (veneno, parálisis, etc.).
+* Mejorar la **interfaz visual** o integrar con una GUI.
+
+---
+
+## 🎓 Créditos y Licencia
+
+Desarrollado con fines académicos para la **Universidad del Valle**.
+Proyecto creado por los estudiantes del curso de **Programación Orientada a Objetos**.
