@@ -6,6 +6,7 @@ import java.util.Random;
 
 public class Enemigo extends Personaje {
     public Enemigo(String nombre, int hp, int mp, int ataque, int defensa, int velocidad) {
+    // Clase que representa a un enemigo
         super(nombre, hp, mp, ataque, defensa, velocidad);
         habilidades.add(new AtaqueBasico());
     }

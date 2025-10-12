@@ -7,6 +7,7 @@ import java.util.List;
 public abstract class Personaje {
     protected String nombre;
     protected int hp, mp, ataque, defensa, velocidad;
+        // Clase base para personajes
     protected boolean vivo = true;
     protected List<Habilidad> habilidades = new ArrayList<>();
 
